@@ -20,7 +20,12 @@
 }
 
 .item3{
-    height: 250px;
+  text-align: right;
+}
+
+.item4{
+  height: 10px;
+
 }
 
 .button{
@@ -79,8 +84,10 @@ li {
 
 li a {
   display: block;
+  height: 60px;
   color: white;
   text-align: center;
+  font-size: 30px;
   padding: 14px 16px;
   text-decoration: none;
 }
