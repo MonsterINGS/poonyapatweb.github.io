@@ -277,6 +277,7 @@ myApp=[
 	  goHomeBtn.addEventListener("click",()=>{
 	  	quizOverBox.classList.remove("show");
 	  	quizHomeBox.classList.add("show");
+	  	GoHome();
 	  	resetQuiz();
 	  })
 
@@ -288,7 +289,8 @@ myApp=[
 
 	  function GoHome()
 	  {
-	  	window.location="../";
+	  	goHomeBtn.classList.remove("show");
+	  	window.location="../../Content.html";
 	  }
 
 	 // window.onload=()=>{

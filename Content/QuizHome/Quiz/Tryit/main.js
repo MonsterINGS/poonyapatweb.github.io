@@ -1,45 +1,29 @@
-function update()
-{
-	var idoc = document.getElementById('iframe').contentWindow.document;
 
-	idoc.open();
-	idoc.write(editor.getValue());
-	idoc.close();
+const runBtn=document.querySelector(".run-btn");
+const gohomeBtn=document.querySelector(".go-home-btn");
+
+
+/* MAIN FUNCTION FOR RENDERING TEXTAREA CODE TO IFRAME */
+function run_code() {
+    var iframe = document.getElementById('iframe');
+    iframe = (iframe.contentWindow) ? iframe.contentWindow : (iframe.contentDocument) ? iframe.contentDocument.document : iframe.contentDocument;
+    iframe.document.open();
+    // GET CODEMIRROR TEXTAREA VALUE [ editor.getValue() ]
+    iframe.document.write(editor.getValue());
+    iframe.document.close();
+    return false;
 }
+//WHEN CLICKED RUN BUTTON
+runBtn.addEventListener("click",()=>{
+      run_code();
+    })
+   
 
-function setupEditor()
-{
-  window.editor = ace.edit("editor");
-  editor.setTheme("ace/theme/monokai");
-  editor.getSession().setMode("ace/mode/html");
-  editor.setValue(`<!DOCTYPE html>
-<html>
-<head>
-</head>
+  goHomeBtn.addEventListener("click",()=>{
+      GoHome();
+    })
 
-<body>
-</body>
-
-</html>`,1); //1 = moves cursor to end
-
-  editor.getSession().on('change', function() {
-    update();
-  });
-
-  editor.focus();
-  
-  
-  editor.setOptions({
-    fontSize: "16pt",
-    showLineNumbers: false,
-    showGutter: false,
-    vScrollBarAlwaysVisible:true,
-    enableBasicAutocompletion: false, enableLiveAutocompletion: false
-  });
-
-  editor.setShowPrintMargin(false);
-  editor.setBehavioursEnabled(false);
-}
-
-setupEditor();
-update();
+function GoHome()
+    {
+      window.location="../../Content.html";
+    }
